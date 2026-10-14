@@ -114,6 +114,7 @@ Las rutas devuelven HTML. Las que llama HTMX devuelven solo un fragmento de la p
 | GET | `/materias` | Lista de materias activas |
 | POST | `/materias` | Crea una materia |
 | GET | `/materias/{id}` | Ficha: links, próximas fechas y apuntes |
+| GET | `/materias/{id}/editar` | Formulario de edición precargado (fragmento HTMX) |
 | PUT | `/materias/{id}` | Edita |
 | DELETE | `/materias/{id}` | Elimina |
 | POST | `/materias/{id}/archivar` | Archiva o desarchiva |
