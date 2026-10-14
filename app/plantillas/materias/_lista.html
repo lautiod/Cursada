@@ -1,0 +1,7 @@
+<div id="lista-materias" class="lista">
+  {% for materia in materias %}
+    {% include "materias/_tarjeta.html" %}
+  {% endfor %}
+</div>
+{# Se muestra solo si la lista no tiene tarjetas (ver estilos.css). #}
+<p class="vacio">Todavía no cargaste materias.</p>

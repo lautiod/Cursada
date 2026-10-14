@@ -1,8 +1,12 @@
 import pytest
+from fastapi.testclient import TestClient
 from sqlalchemy.pool import StaticPool
 from sqlmodel import Session, SQLModel, create_engine
 
 import app.modelos  # noqa: F401  (registra las tablas)
+from app.db import get_session
+from app.dependencias import usuario_actual
+from app.main import app
 from app.modelos import Usuario
 
 
@@ -35,3 +39,13 @@ def usuario_a(session) -> Usuario:
 @pytest.fixture
 def usuario_b(session) -> Usuario:
     return _crear_usuario(session, "beto@test.com")
+
+
+@pytest.fixture
+def client(session, usuario_a):
+    """Cliente HTTP con la base de test y logueado como usuario_a."""
+    app.dependency_overrides[get_session] = lambda: session
+    app.dependency_overrides[usuario_actual] = lambda: usuario_a
+    with TestClient(app) as client:
+        yield client
+    app.dependency_overrides.clear()

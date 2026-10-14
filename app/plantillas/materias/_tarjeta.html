@@ -1,0 +1,20 @@
+<article id="materia-{{ materia.id }}" class="tarjeta">
+  <h3><a href="/materias/{{ materia.id }}">{{ materia.nombre }}</a></h3>
+  <p class="meta">
+    {{ materia.anio }} · {{ CUATRIMESTRES[materia.cuatrimestre] }}
+    {% if materia.docente %} · {{ materia.docente }}{% endif %}
+  </p>
+  <p class="links">
+    {% if materia.link_drive %}<a href="{{ materia.link_drive }}" target="_blank" rel="noopener">Drive</a>{% endif %}
+    {% if materia.link_moodle %}<a href="{{ materia.link_moodle }}" target="_blank" rel="noopener">Moodle</a>{% endif %}
+  </p>
+  <div class="acciones">
+    <button type="button"
+            hx-get="/materias/{{ materia.id }}/editar"
+            hx-target="closest .tarjeta" hx-swap="outerHTML">Editar</button>
+    <button type="button" class="peligro"
+            hx-delete="/materias/{{ materia.id }}"
+            hx-confirm="¿Eliminar {{ materia.nombre }}? No se puede deshacer."
+            hx-target="closest .tarjeta" hx-swap="outerHTML">Eliminar</button>
+  </div>
+</article>

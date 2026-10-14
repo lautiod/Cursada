@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block titulo %}Materias · Cursada{% endblock %}
+{% block contenido %}
+  <h1>Materias</h1>
+
+  {% include "materias/_lista.html" %}
+
+  <section class="nueva">
+    <h2>Nueva materia</h2>
+    {% include "materias/_formulario.html" %}
+  </section>
+{% endblock %}

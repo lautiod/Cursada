@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block titulo %}{{ materia.nombre }} · Cursada{% endblock %}
+{% block contenido %}
+  <p><a href="/materias">← Materias</a></p>
+  <h1>{{ materia.nombre }}</h1>
+  <p class="meta">
+    {{ materia.anio }} · {{ CUATRIMESTRES[materia.cuatrimestre] }}
+    {% if materia.docente %} · {{ materia.docente }}{% endif %}
+  </p>
+
+  <section>
+    <h2>Links</h2>
+    {% if materia.link_drive or materia.link_moodle %}
+      <p class="links">
+        {% if materia.link_drive %}<a href="{{ materia.link_drive }}" target="_blank" rel="noopener">Carpeta de Drive</a>{% endif %}
+        {% if materia.link_moodle %}<a href="{{ materia.link_moodle }}" target="_blank" rel="noopener">Aula de Moodle</a>{% endif %}
+      </p>
+    {% else %}
+      <p class="vacio-ficha">Esta materia no tiene links cargados.</p>
+    {% endif %}
+  </section>
+{% endblock %}

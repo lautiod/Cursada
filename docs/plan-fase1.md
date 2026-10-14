@@ -34,12 +34,12 @@ Armamos el esqueleto que define `DISENO.md` (FastAPI + Jinja2 + HTMX + SQLModel 
 - [x] Commit
 
 ### 4. Rutas y plantillas
-- [ ] `app/dependencias.py`: stub `usuario_actual` (busca o crea `demo@cursada.local`)
-- [ ] Fixture `client` con overrides de `get_session` y `usuario_actual`
-- [ ] `tests/test_rutas_materias.py` escrito y fallando
-- [ ] `app/rutas/materias.py` + handler 404 para `NoEncontrado`
-- [ ] Plantillas (`base.html`, `materias/lista.html`, `_tarjeta.html`, `_formulario.html`, `ficha.html`) y `estilos.css` → tests en verde
-- [ ] Commit
+- [x] `app/dependencias.py`: stub `usuario_actual` (busca o crea `demo@cursada.local`)
+- [x] Fixture `client` con overrides de `get_session` y `usuario_actual`
+- [x] `tests/test_rutas_materias.py` escrito y fallando
+- [x] `app/rutas/materias.py` + handler 404 para `NoEncontrado`
+- [x] Plantillas (`base.html`, `materias/lista.html`, `_tarjeta.html`, `_formulario.html`, `ficha.html`) y `estilos.css` → tests en verde
+- [x] Commit
 
 ### 5. Documentación
 - [ ] `README.md`: cómo arrancar
@@ -68,7 +68,7 @@ Todas las funciones reciben `usuario_id`:
 | --- | --- | --- |
 | GET | `/` | Redirige (303) a `/materias` |
 | GET | `/materias` | Página: tarjetas + formulario de nueva materia |
-| POST | `/materias` | Fragmento `_tarjeta.html` |
+| POST | `/materias` | Lista ordenada (`_creada.html`) + formulario vacío fuera de banda |
 | GET | `/materias/{id}` | Ficha básica: datos y links |
 | GET | `/materias/{id}/editar` | Fragmento del formulario precargado |
 | PUT | `/materias/{id}` | Fragmento de la tarjeta actualizada |

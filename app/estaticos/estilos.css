@@ -1,0 +1,96 @@
+:root {
+  color-scheme: light dark;
+  --fondo: #fafafa;
+  --superficie: #ffffff;
+  --texto: #1f2328;
+  --suave: #656d76;
+  --borde: #d0d7de;
+  --acento: #0b6bcb;
+  --peligro: #c62828;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fondo: #111418;
+    --superficie: #1a1f24;
+    --texto: #e6edf3;
+    --suave: #9198a1;
+    --borde: #30363d;
+    --acento: #58a6ff;
+    --peligro: #ff7b72;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: var(--fondo);
+  color: var(--texto);
+  line-height: 1.5;
+}
+
+a { color: var(--acento); }
+
+.barra {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--borde);
+  background: var(--superficie);
+}
+.barra .marca { font-weight: 700; text-decoration: none; color: var(--texto); }
+.barra nav { display: flex; gap: 1rem; }
+.barra .pendiente { color: var(--suave); cursor: default; }
+
+main { max-width: 56rem; margin: 0 auto; padding: 1rem; }
+
+.lista {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  gap: 1rem;
+}
+
+.tarjeta {
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: 8px;
+  padding: 1rem;
+}
+.tarjeta h3 { margin: 0 0 0.25rem; }
+.tarjeta h3 a { color: var(--texto); text-decoration: none; }
+.meta { color: var(--suave); margin: 0 0 0.5rem; }
+.links { display: flex; gap: 1rem; margin: 0 0 0.75rem; }
+
+.vacio { display: none; color: var(--suave); }
+.lista:not(:has(.tarjeta)) + .vacio { display: block; }
+
+.nueva { margin-top: 2rem; }
+
+.formulario { display: grid; gap: 0.75rem; max-width: 32rem; }
+.formulario label { display: grid; gap: 0.25rem; }
+.formulario .fila { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+.formulario input, .formulario select {
+  padding: 0.4rem 0.5rem;
+  border: 1px solid var(--borde);
+  border-radius: 6px;
+  background: var(--fondo);
+  color: var(--texto);
+  font: inherit;
+}
+.error { color: var(--peligro); font-size: 0.9rem; }
+
+.acciones { display: flex; gap: 0.5rem; }
+button {
+  padding: 0.4rem 0.8rem;
+  border: 1px solid var(--borde);
+  border-radius: 6px;
+  background: var(--superficie);
+  color: var(--texto);
+  font: inherit;
+  cursor: pointer;
+}
+button[type="submit"] { background: var(--acento); border-color: var(--acento); color: #fff; }
+button.peligro { color: var(--peligro); }

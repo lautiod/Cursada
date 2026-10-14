@@ -1,0 +1,8 @@
+{# Respuesta al crear: la lista ordenada reemplaza a la anterior y el formulario vuelve vacío (fuera de banda). #}
+<div id="lista-materias" class="lista">
+  {% for materia in materias %}
+    {% include "materias/_tarjeta.html" %}
+  {% endfor %}
+</div>
+{% set oob = true %}
+{% include "materias/_formulario.html" %}

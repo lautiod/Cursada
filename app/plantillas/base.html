@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block titulo %}Cursada{% endblock %}</title>
+  {# Por defecto HTMX no hace swap de respuestas 4xx; los 422 traen el formulario con errores. #}
+  <meta name="htmx-config" content='{"responseHandling": [
+    {"code": "204", "swap": false},
+    {"code": "[23]..", "swap": true},
+    {"code": "422", "swap": true},
+    {"code": "[45]..", "swap": false, "error": true}
+  ]}'>
+  <link rel="stylesheet" href="/estaticos/estilos.css">
+  <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.4/dist/htmx.min.js"></script>
+</head>
+<body>
+  <header class="barra">
+    <a class="marca" href="/">Cursada</a>
+    <nav>
+      <span class="pendiente" title="Próximamente">Fechas</span>
+      <a href="/materias">Materias</a>
+      <span class="pendiente" title="Próximamente">Estudio</span>
+    </nav>
+  </header>
+  <main>
+    {% block contenido %}{% endblock %}
+  </main>
+</body>
+</html>

@@ -1,0 +1,50 @@
+{#
+  Sirve para crear (materia indefinida) y para editar (materia definida).
+  valores: lo que se muestra en los campos. errores: mensaje por campo.
+#}
+{% if materia %}
+<form id="materia-{{ materia.id }}" class="tarjeta formulario"
+      hx-put="/materias/{{ materia.id }}" hx-target="this" hx-swap="outerHTML">
+{% else %}
+<form id="form-nueva" class="formulario"
+      hx-post="/materias" hx-target="#lista-materias" hx-swap="outerHTML"
+      {% if oob %}hx-swap-oob="true"{% endif %}>
+{% endif %}
+
+  {% macro campo(nombre, etiqueta, tipo="text", requerido=false, extra="") %}
+    <label>
+      {{ etiqueta }}
+      <input type="{{ tipo }}" name="{{ nombre }}" value="{{ valores.get(nombre) or '' }}"
+             {% if requerido %}required{% endif %} {{ extra }}>
+      {% if errores.get(nombre) %}<span class="error">{{ errores[nombre] }}</span>{% endif %}
+    </label>
+  {% endmacro %}
+
+  {{ campo("nombre", "Nombre", requerido=true, extra='maxlength="100"') }}
+  <div class="fila">
+    {{ campo("anio", "Año", tipo="number", requerido=true, extra='min="2000" max="2100"') }}
+    <label>
+      Cuatrimestre
+      <select name="cuatrimestre">
+        {% for valor, etiqueta in CUATRIMESTRES.items() %}
+          <option value="{{ valor }}" {% if valores.get("cuatrimestre") == valor %}selected{% endif %}>{{ etiqueta }}</option>
+        {% endfor %}
+      </select>
+      {% if errores.get("cuatrimestre") %}<span class="error">{{ errores["cuatrimestre"] }}</span>{% endif %}
+    </label>
+  </div>
+  {{ campo("docente", "Docente", extra='maxlength="100"') }}
+  {{ campo("link_drive", "Carpeta de Drive", tipo="url", extra='placeholder="https://drive.google.com/..."') }}
+  {{ campo("link_moodle", "Aula de Moodle", tipo="url", extra='placeholder="https://..."') }}
+
+  <div class="acciones">
+    {% if materia %}
+      <button type="submit">Guardar</button>
+      <button type="button"
+              hx-get="/materias" hx-select="#materia-{{ materia.id }}"
+              hx-target="#materia-{{ materia.id }}" hx-swap="outerHTML">Cancelar</button>
+    {% else %}
+      <button type="submit">Agregar materia</button>
+    {% endif %}
+  </div>
+</form>
