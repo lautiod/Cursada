@@ -28,10 +28,10 @@ Armamos el esqueleto que define `DISENO.md` (FastAPI + Jinja2 + HTMX + SQLModel 
 - [x] Commit
 
 ### 3. Servicio de materias (tests primero)
-- [ ] `tests/conftest.py`: SQLite en memoria (`StaticPool`) y fixtures `session`, `usuario_a` y `usuario_b`
-- [ ] `tests/test_servicio_materias.py` escrito y fallando
-- [ ] `app/servicios/errores.py` (`NoEncontrado`) y `app/servicios/materias.py` → tests en verde
-- [ ] Commit
+- [x] `tests/conftest.py`: SQLite en memoria (`StaticPool`) y fixtures `session`, `usuario_a` y `usuario_b`
+- [x] `tests/test_servicio_materias.py` escrito y fallando
+- [x] `app/servicios/errores.py` (`NoEncontrado`) y `app/servicios/materias.py` → tests en verde
+- [x] Commit
 
 ### 4. Rutas y plantillas
 - [ ] `app/dependencias.py`: stub `usuario_actual` (busca o crea `demo@cursada.local`)
