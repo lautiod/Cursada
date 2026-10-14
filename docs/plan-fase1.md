@@ -45,7 +45,7 @@ Armamos el esqueleto que define `DISENO.md` (FastAPI + Jinja2 + HTMX + SQLModel 
 - [x] `README.md`: cómo arrancar
 - [x] `DISENO.md` §4: sumar `GET /materias/{id}/editar`
 - [x] Commit
-- [ ] Generar `CLAUDE.md` con `/init` y **parar** (lo edita Lauti)
+- [x] Generar `CLAUDE.md` con `/init` y **parar** (lo edita Lauti)
 
 ### 6. Cierre
 - [ ] Verificación manual en el navegador (ver abajo)
