@@ -1,7 +1,3 @@
 # Cursada 
-p Cursada
-o 
-    u
-rs
 
-Cda
+Cambiando el README.md 
