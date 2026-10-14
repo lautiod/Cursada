@@ -7,7 +7,7 @@ from sqlmodel import Session, create_engine
 from app.config import config
 
 
-def _crear_engine(url: str):
+def crear_engine(url: str):
     url_parseada = make_url(url)
     if url_parseada.drivername.startswith("sqlite") and url_parseada.database:
         # SQLite no crea la carpeta del archivo por su cuenta.
@@ -15,7 +15,7 @@ def _crear_engine(url: str):
     return create_engine(url, connect_args={"check_same_thread": False})
 
 
-engine = _crear_engine(config.database_url)
+engine = crear_engine(config.database_url)
 
 
 def get_session() -> Iterator[Session]:

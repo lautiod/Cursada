@@ -20,12 +20,12 @@ Armamos el esqueleto que define `DISENO.md` (FastAPI + Jinja2 + HTMX + SQLModel 
 - [x] Commit
 
 ### 2. Modelos, migraciones y DISENO
-- [ ] `app/modelos/usuario.py` y `app/modelos/materia.py` (`Materia` + `MateriaDatos`)
-- [ ] Alembic: `alembic.ini` y `env.py` (`SQLModel.metadata`, `render_as_batch=True`, URL desde la config)
-- [ ] Migración `0001_usuarios_y_materias`
-- [ ] `tests/test_migraciones.py`: `upgrade head` y después `alembic check` sin diferencias
-- [ ] `DISENO.md` §3: aclarar que `anio` es el año calendario y que `cuatrimestre` puede ser 1, 2 o anual
-- [ ] Commit
+- [x] `app/modelos/usuario.py` y `app/modelos/materia.py` (`Materia` + `MateriaDatos`)
+- [x] Alembic: `alembic.ini` y `env.py` (`SQLModel.metadata`, `render_as_batch=True`, URL desde la config)
+- [x] Migración `0001_usuarios_y_materias`
+- [x] `tests/test_migraciones.py`: `upgrade head` y después `alembic check` sin diferencias
+- [x] `DISENO.md` §3: aclarar que `anio` es el año calendario y que `cuatrimestre` puede ser 1, 2 o anual
+- [x] Commit
 
 ### 3. Servicio de materias (tests primero)
 - [ ] `tests/conftest.py`: SQLite en memoria (`StaticPool`) y fixtures `session`, `usuario_a` y `usuario_b`

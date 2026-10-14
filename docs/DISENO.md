@@ -81,7 +81,7 @@ erDiagram
 | --- | --- | --- |
 | `usuarios` | id, email (único), password_hash, nombre, creado_en | |
 | `tokens_recuperacion` | id, usuario_id, token_hash, expira_en, usado | El token vence en 1 hora y sirve una sola vez |
-| `materias` | id, usuario_id, nombre, anio, cuatrimestre, docente, link_drive, link_moodle, archivada | |
+| `materias` | id, usuario_id, nombre, anio, cuatrimestre, docente, link_drive, link_moodle, archivada | `anio`: año calendario en que se cursa (ej. 2026), no el año de la carrera. `cuatrimestre`: 1, 2 o anual |
 | `fechas` | id, materia_id, titulo, tipo, fecha, hora (opcional), estado, descripcion, origen | `tipo`: tp, parcial, proyecto, otro. `estado`: pendiente, entregado. `origen`: manual, texto, pdf |
 | `apuntes` | id, materia_id, nombre_archivo, ruta, paginas, tokens_estimados, estado_indexado, subido_en | `estado_indexado`: pendiente, listo, error |
 | `fragmentos` | id, apunte_id, orden, pagina, texto, embedding | El vector se guarda con `sqlite-vec` |
